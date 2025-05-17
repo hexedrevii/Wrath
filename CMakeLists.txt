@@ -15,7 +15,9 @@ endif()
 find_package(SFML COMPONENTS Network Graphics Window Audio System CONFIG REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC
-  wrath/lib.cpp
+  wrath/source/entity.cpp
+  wrath/source/planet.cpp
+  wrath/source/universe.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
