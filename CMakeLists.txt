@@ -18,6 +18,10 @@ add_library(${PROJECT_NAME} STATIC
   wrath/lib.cpp
 )
 
+target_include_directories(${PROJECT_NAME} PUBLIC
+  wrath/include
+)
+
 target_link_libraries(${PROJECT_NAME} PRIVATE
   SFML::Network SFML::Graphics SFML::Window SFML::Audio SFML::System
 )
