@@ -18,6 +18,11 @@ namespace Wrath
     void detach();
 
     void detach_and_draw();
+
+    sf::RenderTexture& texture()
+    {
+      return m_texture;
+    }
   private:
     sf::RenderTexture m_texture;
     sf::RenderWindow& m_window;

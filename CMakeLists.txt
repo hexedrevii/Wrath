@@ -20,6 +20,8 @@ add_library(${PROJECT_NAME} STATIC
   wrath/source/universe.cpp
 
   wrath/source/renderer.cpp
+
+  wrath/source/game.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC

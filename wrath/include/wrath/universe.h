@@ -30,7 +30,7 @@ namespace Wrath
   };
 
   template <typename TWorld, typename... TArgs>
-  inline void Universe::set(TArgs &&...args)
+  inline void Wrath::Universe::set(TArgs &&...args)
   {
     static_assert(std::is_base_of<World, TWorld>::value, "TWorld must derive from World");
 

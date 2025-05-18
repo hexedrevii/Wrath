@@ -34,4 +34,20 @@ namespace Wrath
   private:
     std::vector<std::shared_ptr<Wrath::Entity>> m_entities;
   };
+
+  template <typename TEntity, typename... TArgs>
+  inline std::weak_ptr<TEntity> Wrath::Planet::enroll(TArgs &&...args)
+  {
+    // Compile-time check... C++ is not a sane language bro
+    static_assert(std::is_base_of<Wrath::Entity, TEntity>::value,
+                  "TEntity must derive from Entity");
+
+    std::shared_ptr<TEntity> entity =
+        std::make_shared<TEntity>(std::forward<TArgs>(args)...);
+    entity->awake();
+
+    this->m_entities.emplace_back(entity);
+
+    return entity;
+  }
 }

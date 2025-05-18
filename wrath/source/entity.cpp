@@ -42,7 +42,7 @@ void Wrath::Entity::destroy()
 }
 
 template <typename TComponent, typename... TArgs>
-inline void Wrath::Entity::enroll_component(TArgs &&...args)
+void Wrath::Entity::enroll_component(TArgs &&...args)
 {
   static_assert(std::is_base_of<Wrath::Component, TComponent>::value, "TComponent must derive from Component");
 
@@ -53,7 +53,7 @@ inline void Wrath::Entity::enroll_component(TArgs &&...args)
   this->m_components.emplace_back(component);
 }
 
-inline void Wrath::Entity::enroll_component(std::shared_ptr<Component> component)
+void Wrath::Entity::enroll_component(std::shared_ptr<Component> component)
 {
   if (component->id == -1)
     component->id = this->m_components.size();

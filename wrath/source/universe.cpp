@@ -2,7 +2,7 @@
 #include <SFML/Window/Event.hpp>
 #include <optional>
 
-inline void Wrath::Universe::event(std::optional<sf::Event>& event)
+void Wrath::Universe::event(std::optional<sf::Event>& event)
 {
   if (this->m_active != nullptr)
   {
@@ -10,7 +10,7 @@ inline void Wrath::Universe::event(std::optional<sf::Event>& event)
   }
 }
 
-inline void Wrath::Universe::process(float delta)
+void Wrath::Universe::process(float delta)
 {
   if (this->m_active != nullptr)
   {
@@ -18,7 +18,7 @@ inline void Wrath::Universe::process(float delta)
   }
 }
 
-inline void Wrath::Universe::render()
+void Wrath::Universe::render()
 {
   if (this->m_active != nullptr)
   {
