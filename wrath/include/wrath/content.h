@@ -11,14 +11,11 @@ namespace Wrath
   class ContentLoader
   {
   public:
-    ContentLoader(sf::RenderWindow& window) : mWindow(window) {};
-
     void enroll(const std::string_view name, const std::filesystem::path& path);
     void enroll_relative(const std::string_view name, const std::filesystem::path& relative);
 
     const sf::Texture& get(const std::string_view name) const;
   private:
     std::unordered_map<std::string_view, std::unique_ptr<sf::Texture>> mTextures;
-    sf::RenderWindow& mWindow;
   };
 }

@@ -12,7 +12,6 @@ namespace Wrath
   {
   public:
     Game(const std::string& title, sf::Vector2u size)
-      : content(mWindow)
     {
       this->mTitle = title;
       this->mSize = size;
