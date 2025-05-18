@@ -1,5 +1,6 @@
 #pragma once
 
+#include "wrath/content.h"
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Window/Event.hpp>
@@ -11,10 +12,13 @@ namespace Wrath
   {
   public:
     Game(const std::string& title, sf::Vector2u size)
+      : content(mWindow)
     {
       this->mTitle = title;
       this->mSize = size;
     };
+
+    Wrath::ContentLoader content;
 
     const std::string& title() const;
     void set_title(const std::string& title);

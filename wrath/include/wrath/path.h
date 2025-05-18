@@ -1,5 +1,6 @@
 #pragma once
 
+#include <SFML/Graphics/Texture.hpp>
 #include <string>
 
 #if defined(_WIN32)
@@ -41,5 +42,11 @@ namespace Wrath
     std::string full_path(path, count);
     return full_path.substr(0, full_path.find_last_of("/"));
 #endif
+  }
+
+  inline sf::Texture load_texture_relative(const std::filesystem::path& relative)
+  {
+    std::string base = Wrath::get_base_directory();
+    return sf::Texture(base / relative);
   }
 }
