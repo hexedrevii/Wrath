@@ -20,6 +20,7 @@ add_library(${PROJECT_NAME} STATIC
   wrath/source/universe.cpp
 
   wrath/source/renderer.cpp
+  wrath/source/shapes.cpp
 
   wrath/source/game.cpp
   wrath/source/content.cpp
