@@ -13,8 +13,10 @@ namespace Wrath
   public:
     /// @brief Set the active world.
     void set(std::unique_ptr<Wrath::World> next);
-
     template <typename TWorld, typename... TArgs> void set(TArgs &&...args);
+
+    /// @brief Get the active world, casted to a specific type.
+    template<typename TWorld> TWorld* get();
 
     /// @brief Handle world events.
     void event(std::optional<sf::Event> &event);
@@ -41,5 +43,12 @@ namespace Wrath
 
     this->m_active = std::make_unique<TWorld>(std::forward<TArgs>(args)...);
     this->m_active->awake();
+  }
+
+  template<typename TWorld>
+  inline TWorld* Wrath::Universe::get()
+  {
+    static_assert(std::is_base_of<World, TWorld>::value, "TWorld must derive from World");
+    return dynamic_cast<TWorld*>(this->m_active.get());
   }
 }
