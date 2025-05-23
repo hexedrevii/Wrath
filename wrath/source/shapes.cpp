@@ -7,7 +7,7 @@
 void Wrath::draw_rectangle_lines(sf::RenderTarget &target, sf::FloatRect &rect, sf::Color colour)
 {
   std::array vertices = {
-    sf::Vertex { rect.position, colour },
+    sf::Vertex { sf::Vector2f(rect.position.x - 1, rect.position.y), colour },
     sf::Vertex { sf::Vector2f(rect.position.x + rect.size.x, rect.position.y), colour },
     sf::Vertex { sf::Vector2f(rect.position.x + rect.size.x, rect.position.y + rect.size.y), colour },
     sf::Vertex { sf::Vector2f(rect.position.x, rect.position.y + rect.size.y), colour },
